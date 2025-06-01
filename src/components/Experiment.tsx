@@ -1,68 +1,59 @@
-import React from 'react';
-import { FlaskConical } from 'lucide-react';
-
-interface PigmentCardProps {
-  name: string;
-  color: string;
-  reflectivity: string;
-}
-
-const PigmentCard: React.FC<PigmentCardProps> = ({ name, color, reflectivity }) => {
-  return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-      <div className={`h-32 ${color}`}></div>
-      <div className="p-4">
-        <h4 className="font-bold text-[#333652] mb-1">{name}</h4>
-        <p className="text-sm text-gray-700">Odrazivost: {reflectivity}</p>
-      </div>
-    </div>
-  );
-};
+import React from "react";
 
 export const Experiment: React.FC = () => {
-  const pigments = [
-    { name: "TiO₂ Standard", color: "bg-white", reflectivity: "85%" },
-    { name: "BaSO₄ Advanced", color: "bg-gray-100", reflectivity: "92%" },
-    { name: "CaCO₃ Hybrid", color: "bg-gray-200", reflectivity: "89%" },
-    { name: "SiO₂ Infused", color: "bg-blue-50", reflectivity: "91%" },
-    { name: "ZnO Composite", color: "bg-yellow-50", reflectivity: "88%" },
-    { name: "MgO Enhanced", color: "bg-green-50", reflectivity: "90%" },
-  ];
-
-  return (
-    <section className="py-20 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#333652] mb-12 text-center">
-          Experiment
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <div>
-            <h3 className="text-2xl font-bold text-[#333652] mb-6">Testované Pigmenty</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {pigments.map((pigment, index) => (
-                <PigmentCard 
-                  key={index}
-                  name={pigment.name}
-                  color={pigment.color}
-                  reflectivity={pigment.reflectivity}
-                />
-              ))}
+    return (
+        <section id="experiment" className="py-20 px-4 bg-gray-50">
+            <div className="container mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#333652] mb-12 text-center">
+                    Experiment
+                </h2>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+                    {/* Apparatus Left */}
+                    <div className="bg-white h-[40rem] p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center">
+                        <h3 className="text-2xl font-bold text-[#333652] mb-6 text-center">
+                            Změřená data absorbance jednotlivých pigmentů
+                        </h3>
+                        <div className="w-full flex flex-col items-center mb-6">
+                            <img
+                                src="/downloads/Picture1.png"
+                                alt="Spektra absorbance"
+                                className="rounded-lg max-h-96 w-auto object-contain border border-gray-200"
+                            />
+                        </div>
+                        <p className="text-gray-700 text-center">
+                            Nejprve jsme proši databázi bílých pigmentů, protože
+                            jsme věděli, že ideální pigment bude ve viditelném
+                            spektru bílý. Pak jsme provedli měření absorbance,
+                            abychom našli takový, který je ve viditelném spektru
+                            odrazivý a v atmosférickém okně dobře vyzařuje.
+                        </p>
+                    </div>
+                    {/* Apparatus Right */}
+                    <div className="bg-white h-[40rem] p-8 rounded-xl shadow-lg border border-gray-100 flex flex-col items-center">
+                        <h3 className="text-2xl font-bold text-[#333652] mb-6 text-center">
+                            Měřicí aparatura
+                        </h3>
+                        <div className="w-full flex flex-col items-center mb-6">
+                            <img
+                                src="/downloads/Picture2.png"
+                                alt="Schéma aparatury"
+                                className="rounded-lg max-h-96 w-auto object-contain border border-gray-200"
+                            />
+                            <span className="mt-2 text-gray-600 text-sm">
+                                Schéma aparatury
+                            </span>
+                        </div>
+                        <p className="text-gray-700 text-center">
+                            Měření teploty jednotlivých pigmentů jsme provedli
+                            pomocí mikropočítače arduino. Pomocí zesilovače z
+                            termočlánků. Součástí termočlánků byly měděné
+                            destičky, které slouží jako základna pro pigmenty.
+                            Pigmenty jsme umístili do malých krabiček, které
+                            byly umístněny za okno.
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
-          
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-2xl font-bold text-[#333652] mb-6">Měřicí Aparatura</h3>
-            <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center mb-4">
-              <FlaskConical size={64} className="text-[#333652] opacity-50" />
-              <span className="ml-2 text-gray-600">Schéma aparatury</span>
-            </div>
-            <p className="text-gray-700">
-              Naše měřicí zařízení kombinuje spektrofotometr s infračervenou kamerou a tepelné senzory pro komplexní analýzu vlastností chladicích barev v reálných podmínkách.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
