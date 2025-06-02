@@ -2,10 +2,14 @@ import React from "react";
 import { Mail, User } from "lucide-react";
 import "./formHandler";
 
-/*console.log("formHandler.js script loaded successfully");*/
-
 export const Footer: React.FC = () => {
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const isFirefox = /Firefox/i.test(navigator.userAgent);
+
+    const handleRedirect = () => {
+        window.location.href =
+            "https://docs.google.com/forms/d/e/1FAIpQLSfaRKuri7CjdnIDuGeAdUHMd3CJUAJr919jTuMMceTTMoYcDA/viewform?usp=dialog";
+    };
 
     return (
         <footer
@@ -13,87 +17,68 @@ export const Footer: React.FC = () => {
             style={{ backgroundColor: "#333652" }}
         >
             <div className="container mx-auto max-w-6xl">
-                {isMobile ? (
-                    <div className="text-center">
-                        <button
-                            onClick={() => {
-                                window.location.href =
-                                    "https://docs.google.com/forms/d/e/1FAIpQLSfaRKuri7CjdnIDuGeAdUHMd3CJUAJr919jTuMMceTTMoYcDA/viewform?usp=dialog";
-                            }}
-                            className="bg-[#fad02c] hover:bg-opacity-90 text-[#333652] font-bold py-3 px-6 rounded-lg transition-all"
-                        >
-                            Napsat zprávu
-                        </button>
-                    </div>
-                ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                        <div>
-                            <h3 className="text-2xl font-bold mb-4">
-                                O autorovi
-                            </h3>
-                            <div className="flex items-start mb-4">
-                                <div className="mr-4 bg-gray-300 rounded-full h-16 w-16 flex items-center justify-center">
-                                    <User
-                                        size={32}
-                                        className="text-[#333652]"
-                                    />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-[#fad02c] mb-2">
-                                        Jan Čivrný
-                                    </h4>
-                                    <p className="text-gray-300 mb-4">
-                                        Výzkumník na vlastní pěst, student.
-                                        Zajímám se o fyziku, biologii a chemii.
-                                        Věnuji se výzkumu pasivních chladicích
-                                        barev a jejich aplikacím v boji proti
-                                        klimatickým změnám.
-                                        <br />
-                                        Zkušenosti jsem nasbíral v práci na{" "}
-                                        <span className="font-bold">
-                                            UFE a UChP AV.
-                                        </span>
-                                    </p>
-                                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 className="text-2xl font-bold mb-4">O autorovi</h3>
+                        <div className="flex items-start mb-4">
+                            <div className="mr-4 bg-gray-300 rounded-full h-16 w-16 flex items-center justify-center">
+                                <User size={32} className="text-[#333652]" />
                             </div>
-
-                            <div className="mt-6">
+                            <div>
                                 <h4 className="font-bold text-[#fad02c] mb-2">
-                                    Poděkování
+                                    Jan Čivrný
                                 </h4>
-                                <p className="text-gray-300">
-                                    Především bych chtěl poděkovat mému
-                                    konzultantovi{" "}
-                                    <span className="font-bold">
-                                        prof. Ing. Dr. Čestmíru Drašarovi
-                                    </span>{" "}
-                                    z FChT UPa. za jeho čas, trpělivost, sdílení
-                                    zkušeností, obětavou pomoc a odborné
-                                    konzultace. Nejvíce si však vážím našeho
-                                    přátelství.
+                                <p className="text-gray-300 mb-4">
+                                    Výzkumník na vlastní pěst, student. Zajímám
+                                    se o fyziku, biologii a chemii. Věnuji se
+                                    výzkumu pasivních chladicích barev a jejich
+                                    aplikacím v boji proti klimatickým změnám.
                                     <br />
-                                    <br /> Děkuji{" "}
+                                    Zkušenosti jsem nasbíral v práci na{" "}
                                     <span className="font-bold">
-                                        prof. Ing. Petře Šulcové Ph.D.
-                                    </span>{" "}
-                                    z FChT UPa za pohotové poskytnutí některých
-                                    bílých pigmentů, které nám scházely.
-                                    <br />
-                                    <br /> Děkuji{" "}
-                                    <span className="font-bold">
-                                        Lučebním závodům Kolín, a.s.
-                                    </span>{" "}
-                                    za bezplatné poskytnutí siloxanového laku
-                                    Lukosil M130. Děkuji také všem ostatním,
-                                    kteří mi pomohli a pomáhají.
+                                        UFE a UChP AV.
+                                    </span>
                                 </p>
                             </div>
                         </div>
 
-                        <div>
-                            <h3 className="text-2xl font-bold mb-6">
-                                Kontaktujte Nás
-                            </h3>
+                        <div className="mt-6">
+                            <h4 className="font-bold text-[#fad02c] mb-2">
+                                Poděkování
+                            </h4>
+                            <p className="text-gray-300">
+                                Především bych chtěl poděkovat mému
+                                konzultantovi{" "}
+                                <span className="font-bold">
+                                    prof. Ing. Dr. Čestmíru Drašarovi
+                                </span>{" "}
+                                z FChT UPa. za jeho čas, trpělivost, sdílení
+                                zkušeností, obětavou pomoc a odborné konzultace.
+                                Nejvíce si však vážím našeho přátelství.
+                                <br />
+                                <br /> Děkuji{" "}
+                                <span className="font-bold">
+                                    prof. Ing. Petře Šulcové Ph.D.
+                                </span>{" "}
+                                z FChT UPa za pohotové poskytnutí některých
+                                bílých pigmentů, které nám scházely.
+                                <br />
+                                <br /> Děkuji{" "}
+                                <span className="font-bold">
+                                    Lučebním závodům Kolín, a.s.
+                                </span>{" "}
+                                za bezplatné poskytnutí siloxanového laku
+                                Lukosil M130. Děkuji také všem ostatním, kteří
+                                mi pomohli a pomáhají.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 className="text-2xl font-bold mb-6">
+                            Kontaktujte Nás
+                        </h3>
+                        {isFirefox ? ( // Change this condition to check for Firefox
                             <form className="space-y-4" id="contactForm">
                                 <div>
                                     <label
@@ -151,9 +136,18 @@ export const Footer: React.FC = () => {
                                     Odeslat zprávu
                                 </button>
                             </form>
-                        </div>
+                        ) : (
+                            <div className="text-left">
+                                <button
+                                    onClick={handleRedirect}
+                                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all"
+                                >
+                                    Napsat zprávu
+                                </button>
+                            </div>
+                        )}
                     </div>
-                )}
+                </div>
 
                 <div className="pt-8 border-t border-white/20 text-center text-gray-400">
                     <p className="max-w-2xl mx-auto px-4 text-sm">

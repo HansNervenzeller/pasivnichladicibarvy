@@ -1,23 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Check if the user is on a mobile device
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
     const form = document.getElementById("contactForm");
     const submitButton = form?.querySelector("button[type='submit']");
 
-    if (isMobile && submitButton) {
-        // Change button color to red on mobile
-        submitButton.style.backgroundColor = "red";
-
-        // Add a click event to redirect to Google Form
-        submitButton.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default form submission
-            window.location.href =
-                "https://docs.google.com/forms/d/e/1FAIpQLSfaRKuri7CjdnIDuGeAdUHMd3CJUAJr919jTuMMceTTMoYcDA/viewform?usp=dialog";
-        });
-    }
-
-    if (!isMobile && form) {
+    if (form) {
         form.addEventListener("submit", async function (e) {
             e.preventDefault();
 
