@@ -63,7 +63,7 @@ export const Download: React.FC = () => {
     ];
 
     return (
-        <section id="downloads" className="py-20 px-6 md:px-16 bg-gray-50">
+        <section id="downloads" className="py-20 px-6 md:px-16 bg-gray-50 ">
             <div className="container mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#333652] mb-12 text-center">
                     Ke stažení

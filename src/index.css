@@ -1,3 +1,227 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*HERE START THE FIREFLIES -------------------------------------------*/
+.firefly {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #fad02c;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 2px #fad02c;
+    filter: blur(0.5px);
+    animation-timing-function: ease-in-out;
+    z-index: 0;
+}
+
+.firefly:nth-child(1) {
+    animation: firefly1 12s infinite;
+}
+.firefly:nth-child(2) {
+    animation: firefly2 14s infinite;
+}
+.firefly:nth-child(3) {
+    animation: firefly3 16s infinite;
+}
+.firefly:nth-child(4) {
+    animation: firefly4 13s infinite;
+}
+.firefly:nth-child(5) {
+    animation: firefly5 15s infinite;
+}
+
+/* Add flicker effect to fireflies */
+.flicker {
+    animation: flicker 3s infinite, fadeOut 5s forwards;
+}
+
+/* Update firefly animations for slower movement, more flickering, and disappearance */
+.random-movement {
+    animation: randomMove 15s ease-in-out, flicker 0.8s infinite,
+        fadeOut 5s forwards;
+}
+
+.flicker-once {
+    animation: flicker 0.8s infinite, fadeOut 5s forwards;
+}
+
+@keyframes firefly1 {
+    0%,
+    100% {
+        transform: translate(10vw, 50vh);
+        opacity: 0;
+    }
+    25% {
+        transform: translate(30vw, 20vh);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(50vw, 40vh);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translate(70vw, 30vh);
+        opacity: 0.6;
+    }
+}
+
+@keyframes firefly2 {
+    0%,
+    100% {
+        transform: translate(80vw, 70vh);
+        opacity: 0;
+    }
+    25% {
+        transform: translate(60vw, 30vh);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(40vw, 50vh);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translate(20vw, 40vh);
+        opacity: 0.6;
+    }
+}
+
+@keyframes firefly3 {
+    0%,
+    100% {
+        transform: translate(30vw, 20vh);
+        opacity: 0;
+    }
+    25% {
+        transform: translate(50vw, 60vh);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(70vw, 30vh);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translate(40vw, 50vh);
+        opacity: 0.6;
+    }
+}
+
+@keyframes firefly4 {
+    0%,
+    100% {
+        transform: translate(60vw, 80vh);
+        opacity: 0;
+    }
+    25% {
+        transform: translate(40vw, 40vh);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(20vw, 60vh);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translate(50vw, 30vh);
+        opacity: 0.6;
+    }
+}
+
+@keyframes firefly5 {
+    0%,
+    100% {
+        transform: translate(50vw, 30vh);
+        opacity: 0;
+    }
+    25% {
+        transform: translate(70vw, 50vh);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(30vw, 40vh);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translate(60vw, 60vh);
+        opacity: 0.6;
+    }
+}
+
+@keyframes flicker {
+    0%,
+    100% {
+        opacity: 0.1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes randomMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10vw, -5vh);
+    }
+    50% {
+        transform: translate(-10vw, 10vh);
+    }
+    75% {
+        transform: translate(5vw, -10vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slide-in-bottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-bottom {
+    animation: slide-in-bottom 0.8s ease-out;
+}
+/*HERE END THE FIREFLIES ---------------------------------------------*/
+
+.scroll-animate {
+    background-color: inherit; /* Inherit the background color from the parent */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --scroll-snap-strength: proximity; /* Change to 'mandatory' for stronger snapping */
+}
+
+body {
+    scroll-snap-type: y var(--scroll-snap-strength);
+    overflow-y: scroll;
+}
+
+section {
+    scroll-snap-align: start;
+}

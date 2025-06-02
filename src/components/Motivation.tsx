@@ -23,7 +23,7 @@ const MotivationItem: React.FC<MotivationItemProps> = ({
 
 export const Motivation: React.FC = () => {
     return (
-        <section id="motivation" className="py-20 px-4">
+        <section id="motivation" className="py-20 px-4 scroll-animate">
             <div className="container mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#333652] mb-12 text-center">
                     Proti čemu bojujeme?

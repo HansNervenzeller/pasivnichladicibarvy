@@ -8,7 +8,10 @@ export const Footer: React.FC = () => {
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
     return (
-        <footer className="bg-[#333652] text-white py-16 px-4">
+        <footer
+            className="bg-[#333652] text-white py-16 px-4 scroll-animate"
+            style={{ backgroundColor: "#333652" }}
+        >
             <div className="container mx-auto max-w-6xl">
                 {isMobile ? (
                     <div className="text-center">
