@@ -94,7 +94,14 @@ export const Hero: React.FC = () => {
                 </button>
             </div>
             <div className="absolute bottom-8 left-0 right-0 flex justify-center slow-bounce z-10">
-                <ChevronDown className="text-[#333652]" size={64} />
+                <button
+                    onClick={() =>
+                        window.scrollBy({ top: 600, behavior: "smooth" })
+                    }
+                    className="focus:outline-none"
+                >
+                    <ChevronDown className="text-[#333652]" size={64} />
+                </button>
             </div>
         </section>
     );
