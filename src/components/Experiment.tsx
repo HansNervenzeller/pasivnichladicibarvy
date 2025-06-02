@@ -46,7 +46,7 @@ export const Experiment: React.FC = () => {
                         </div>
                         <p className="text-gray-700 text-center">
                             Měření teploty jednotlivých pigmentů jsme provedli
-                            pomocí mikropočítače arduino. Pomocí zesilovače z
+                            pomocí mikropočítače Arduino. Pomocí zesilovače z
                             termočlánků. Součástí termočlánků byly měděné
                             destičky, které slouží jako základna pro pigmenty.
                             Pigmenty jsme umístili do malých krabiček, které

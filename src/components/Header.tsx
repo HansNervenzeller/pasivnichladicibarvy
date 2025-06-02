@@ -67,6 +67,14 @@ export const Header: React.FC = () => {
                                 Výsledky
                             </a>
                         </li>
+                        <li>
+                            <a
+                                href="#galerie"
+                                className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
+                            >
+                                Galerie
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>

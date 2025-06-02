@@ -8,6 +8,7 @@ import { Results } from "./components/Results";
 import { Footer } from "./components/Footer";
 /*import { Download } from "lucide-react";*/
 import { Download } from "./components/Download";
+import Galery from "./components/Galery";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <Experiment />
                 <Results />
                 <Download />
+                <Galery />
             </main>
             <Footer />
         </div>
