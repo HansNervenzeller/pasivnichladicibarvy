@@ -38,8 +38,8 @@ export const Motivation: React.FC = () => {
 
                     <MotivationItem
                         icon={<RotateCcw size={48} />}
-                        title="Zpětnovazebné smyčky"
-                        description="Tání sněhu a permafrostu snižuje odrazivost povrchu. Ohřívání oceánů uvolňuje další skleníkové plyny. Tyto procesy mohou vést k nezastavitelnýmu extrému."
+                        title="Zpětnovazební smyčky"
+                        description="Tání sněhu a permafrostu snižuje odrazivost povrchu. Ohřívání oceánů uvolňuje další skleníkové plyny. Tyto procesy mohou vést k nezastavitelnému extrému."
                     />
 
                     <MotivationItem

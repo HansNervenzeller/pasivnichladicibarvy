@@ -21,11 +21,12 @@ export const Experiment: React.FC = () => {
                             />
                         </div>
                         <p className="text-gray-700 text-center">
-                            Nejprve jsme proši databázi bílých pigmentů, protože
-                            jsme věděli, že ideální pigment bude ve viditelném
-                            spektru bílý. Pak jsme provedli měření absorbance,
-                            abychom našli takový, který je ve viditelném spektru
-                            odrazivý a v atmosférickém okně dobře vyzařuje.
+                            Nejprve jsme prošli databázi bílých pigmentů,
+                            protože jsme věděli, že ideální pigment bude ve
+                            viditelném spektru bílý. Pak jsme provedli měření
+                            absorbance, abychom našli takový, který je ve
+                            viditelném spektru odrazivý a v atmosférickém okně
+                            dobře vyzařuje.
                         </p>
                     </div>
                     {/* Apparatus Right */}

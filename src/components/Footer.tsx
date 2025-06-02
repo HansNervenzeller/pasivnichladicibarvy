@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                         <div>
                             <h3 className="text-2xl font-bold mb-4">
-                                O Autorovi
+                                O autorovi
                             </h3>
                             <div className="flex items-start mb-4">
                                 <div className="mr-4 bg-gray-300 rounded-full h-16 w-16 flex items-center justify-center">
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
                                         barev a jejich aplikacím v boji proti
                                         klimatickým změnám.
                                         <br />
-                                        Zkušenosti jsem nabíral v práci na{" "}
+                                        Zkušenosti jsem nasbíral v práci na{" "}
                                         <span className="font-bold">
                                             UFE a UChP AV.
                                         </span>

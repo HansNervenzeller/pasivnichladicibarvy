@@ -43,7 +43,7 @@ export const Download: React.FC = () => {
             file: "SOČ-Barva_Motivace_01.pdf",
             title: "Motivace",
             description:
-                "Tento dokuemnt popisuje motivaci pro práci na projektech bojujících se změnou klimatu.",
+                "Tento dokument popisuje motivaci pro práci na projektech bojujících se změnou klimatu.",
             icon: <ListOrdered size={40} />, // Roman I
         },
         {

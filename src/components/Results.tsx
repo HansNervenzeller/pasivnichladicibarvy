@@ -33,7 +33,7 @@ export const Results: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                         <h3 className="text-xl font-bold text-[#333652] mb-3">
-                            Váhledy
+                            Výhledy
                         </h3>
                         <p className="text-gray-700 mb-4">
                             Naše měření i výpočty ukazují, že pasivní chladicí

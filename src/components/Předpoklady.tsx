@@ -24,7 +24,7 @@ export const Předpoklady: React.FC = () => {
 
                 <div className="bg-[#fad02c] rounded-lg p-8 shadow-lg max-w-4xl mx-auto">
                     <h3 className="text-2xl font-bold text-[#333652] mb-6">
-                        Fyzikální Principy Pasivního Chlazení
+                        Fyzikální principy pasivního chlazení
                     </h3>
 
                     <InfoItem
@@ -38,7 +38,7 @@ export const Předpoklady: React.FC = () => {
                     />
 
                     <InfoItem
-                        title="Radiační Chlazení"
+                        title="Radiační chlazení"
                         description="Barvy vyzařují teplo do vesmíru prostřednictvím atmosférického okna a zároveň odrážejí viditelné záření. Jeví se nám tedy jako bílé. Bilanci mezi vyzářeným a pohlceným teplem se nám podařilo spočítat a je téměř stonásobná ve prospěch vyzařování v oblasti atmosférického okna."
                     />
                 </div>
