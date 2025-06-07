@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { SunSnow } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Header: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,47 +36,63 @@ export const Header: React.FC = () => {
                     </span>
                 </div>
                 <nav>
-                    <ul className="flex space-x-6">
-                        <li>
-                            <a
-                                href="#motivation"
-                                className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
-                            >
-                                Motivace
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#předpoklady"
-                                className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
-                            >
-                                Předpoklady
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#experiment"
-                                className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
-                            >
-                                Experiment
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#results"
-                                className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
-                            >
-                                Výsledky
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#galerie"
-                                className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
-                            >
-                                Galerie
-                            </a>
-                        </li>
+                    <ul
+                        className="flex space-x-6 pr-4" /*padding right for spacing */
+                    >
+                        {" "}
+                        {location.pathname === "/ortogen" ? (
+                            <li>
+                                <Link
+                                    to="/"
+                                    className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
+                                >
+                                    Back
+                                </Link>
+                            </li>
+                        ) : (
+                            <>
+                                <li>
+                                    <a
+                                        href="#motivation"
+                                        className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
+                                    >
+                                        Motivace
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#předpoklady"
+                                        className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
+                                    >
+                                        Předpoklady
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#experiment"
+                                        className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
+                                    >
+                                        Experiment
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#galerie"
+                                        className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
+                                    >
+                                        Galerie
+                                    </a>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/ortogen"
+                                        className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
+                                    >
+                                        OrtoGen
+                                    </Link>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </nav>
             </div>

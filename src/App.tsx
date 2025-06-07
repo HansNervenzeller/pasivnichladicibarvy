@@ -1,4 +1,5 @@
 /*import React from "react";*/
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Motivation } from "./components/Motivation";
@@ -9,22 +10,33 @@ import { Footer } from "./components/Footer";
 /*import { Download } from "lucide-react";*/
 import { Download } from "./components/Download";
 import Galery from "./components/Galery";
+import OrtoGen from "./components/OrtoGen";
 
 function App() {
     return (
-        <div className="bg-[#e9eaec] min-h-screen text-black">
-            <Header />
-            <main>
-                <Hero />
-                <Motivation />
-                <Předpoklady />
-                <Experiment />
-                <Results />
-                <Download />
-                <Galery />
-            </main>
-            <Footer />
-        </div>
+        <Router>
+            <div className="bg-[#e9eaec] min-h-screen text-black">
+                <Header />
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <main>
+                                <Hero />
+                                <Motivation />
+                                <Předpoklady />
+                                <Experiment />
+                                <Results />
+                                <Download />
+                                <Galery />
+                            </main>
+                        }
+                    />
+                    <Route path="/ortogen" element={<OrtoGen />} />
+                </Routes>
+                <Footer />
+            </div>
+        </Router>
     );
 }
 
