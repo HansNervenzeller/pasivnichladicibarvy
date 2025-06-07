@@ -45,28 +45,6 @@ const OrtoGen: React.FC = () => {
         document.body.removeChild(link);
     };
 
-    const exportTaguchiArray = () => {
-        let csvContent = "Test #";
-        for (let i = 0; i < numVariables; i++) {
-            csvContent += `,Factor ${numberToLetters(i + 1)}`;
-        }
-        for (let i = 0; i < numResults; i++) {
-            csvContent += `,Result ${i + 1}`;
-        }
-        csvContent += "\n";
-
-        const rows = document.querySelectorAll("table tbody tr");
-        rows.forEach((row) => {
-            const cells = row.querySelectorAll("td, th");
-            const rowData = Array.from(cells)
-                .map((cell) => cell.textContent?.trim() || "")
-                .join(",");
-            csvContent += rowData + "\n";
-        });
-
-        downloadCSV(csvContent, "taguchi_array.csv");
-    };
-
     const exportResults = () => {
         downloadJSON(rawResults, "calculated_results.json");
     };
@@ -76,7 +54,7 @@ const OrtoGen: React.FC = () => {
 
         let outputTableHTML = '<table class="table border border-[#fad02c]">';
         outputTableHTML +=
-            '<thead><tr><th scope="col" class="text-[#333652]">Factor</th>';
+            '<thead><tr><th scope="col" class="text-[#333652]">Proměnné:</th>';
         for (let i = 0; i < numVariables; i++) {
             outputTableHTML += `<th scope="col"><input id="F${i}" type="text" value="${numberToLetters(
                 i + 1
@@ -85,7 +63,7 @@ const OrtoGen: React.FC = () => {
         outputTableHTML += "</tr></thead><tbody>";
 
         for (let i = 0; i < numLevels; i++) {
-            outputTableHTML += `<tr><th scope="row" class="text-[#333652]">Level ${
+            outputTableHTML += `<tr><th scope="row" class="text-[#333652]">Možnost ${
                 i + 1
             }</th>`;
             for (let j = 0; j < numVariables; j++) {
@@ -103,9 +81,9 @@ const OrtoGen: React.FC = () => {
             outputTableHTML +=
                 '<br><table class="table border border-[#fad02c]"><tbody>';
             for (let i = 0; i < numResults; i++) {
-                outputTableHTML += `<tr><th scope="row" class="text-[#333652]">Result ${
+                outputTableHTML += `<tr><th scope="row" class="text-[#333652]">Měření ${
                     i + 1
-                }</th><td><input id="R${i}" type="text" value="R${
+                }</th><td><input id="R${i}" type="text" value="M${
                     i + 1
                 }" class="border border-[#fad02c] rounded-md p-1 text-[#333652]"></td></tr>`;
             }
@@ -172,7 +150,7 @@ const OrtoGen: React.FC = () => {
             outputTableHTML += `<th scope="col" class="text-[#333652]">${factorName}</th>`;
         }
         for (let i = 0; i < numResults; i++) {
-            outputTableHTML += `<th scope="col" class="text-[#333652]">Result ${
+            outputTableHTML += `<th scope="col" class="text-[#333652]">Měření ${
                 i + 1
             }</th>`;
         }
@@ -222,7 +200,7 @@ const OrtoGen: React.FC = () => {
             outputTableHTML +=
                 '<table class="table border border-[#fad02c]"><thead><tr><th scope="col" class="text-[#333652]">Level</th>';
             for (let j = 0; j < R; j++) {
-                outputTableHTML += `<th scope="col" class="text-[#333652]">Result ${
+                outputTableHTML += `<th scope="col" class="text-[#333652]">Měření ${
                     j + 1
                 }</th>`;
             }
@@ -261,11 +239,56 @@ const OrtoGen: React.FC = () => {
         setRawResults(resultsData); // Store results for export
     };
 
+    const exportTaguchiArrayAsHTML = () => {
+        // Use the existing `taguchiArray` state variable
+        const htmlContent = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Taguchi Array</title>
+            <style>
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                th, td {
+                    border: 1px solid #fad02c;
+                    padding: 8px;
+                    text-align: center;
+                }
+                th {
+                    background-color: #fad02c;
+                    color: #333652;
+                }
+                td {
+                    color: #333652;
+                }
+            </style>
+        </head>
+        <body>
+            ${taguchiArray}
+        </body>
+        </html>
+    `;
+
+        const blob = new Blob([htmlContent], {
+            type: "text/html;charset=utf-8;",
+        });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.setAttribute("download", "taguchi_array.html");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         <section id="ortogen" className="py-20 px-4 bg-[#e9eaec]">
             <div className="container mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#333652] mb-12 text-center">
-                    Ortogonal Array Generator
+                    Generátor Orto Tabulky
                 </h2>
 
                 <div className="bg-white rounded-lg p-8 shadow-lg max-w-4xl mx-auto">
@@ -279,7 +302,8 @@ const OrtoGen: React.FC = () => {
                                 htmlFor="numberOfVariables"
                                 className="block text-[#333652] font-medium"
                             >
-                                Number of Variables (Factors)
+                                Počet proměnných (např. se solí, s pepřem, s
+                                česnekem)
                             </label>
                             <input
                                 type="number"
@@ -299,7 +323,8 @@ const OrtoGen: React.FC = () => {
                                 htmlFor="numberOfSettings"
                                 className="block text-[#333652] font-medium"
                             >
-                                Number of Settings (Levels)
+                                Možnosti nastavení proměnných (např. hodně,
+                                málo, žádné)
                             </label>
                             <input
                                 type="number"
@@ -317,7 +342,7 @@ const OrtoGen: React.FC = () => {
                                 htmlFor="numberOfResults"
                                 className="block text-[#333652] font-medium"
                             >
-                                Number of Measurements (Results)
+                                Počet měření (např. 3x, 5x, 10x)
                             </label>
                             <input
                                 type="number"
@@ -335,14 +360,15 @@ const OrtoGen: React.FC = () => {
                         className="mt-6 mx-auto w-full bg-[#fad02c] hover:bg-[#333652] text-[#222222] hover:text-white font-bold py-2 px-4 rounded-md transition-all duration-300 shadow-lg flex items-center justify-center"
                         onClick={generateDefinitionArray}
                     >
-                        Define Labels!
+                        Definovat popisky!
                     </button>
                 </div>
 
                 {definitionVisible && (
                     <div className="bg-white rounded-lg p-8 shadow-lg max-w-4xl mx-auto mt-8">
                         <h3 className="text-2xl font-bold text-[#333652] mb-6 text-center">
-                            Label Definition
+                            Definice popisků (např. hodně soli, málo soli, hodně
+                            pepře, málo pepře)
                         </h3>
                         <div
                             dangerouslySetInnerHTML={{
@@ -354,7 +380,7 @@ const OrtoGen: React.FC = () => {
                                 className="mx-auto w-full bg-[#fad02c] hover:bg-[#333652] text-[#222222] hover:text-white font-bold py-2 px-4 rounded-md transition-all duration-300 shadow-lg flex items-center justify-center"
                                 onClick={generateTaguchiArray}
                             >
-                                Generate Array!
+                                Generovat tabulku!
                             </button>
                         </div>
                     </div>
@@ -363,7 +389,7 @@ const OrtoGen: React.FC = () => {
                 {arrayVisible && (
                     <div className="bg-white rounded-lg p-8 shadow-lg max-w-4xl mx-auto mt-8">
                         <h3 className="text-2xl font-bold text-[#333652] mb-6 text-center">
-                            Taguchi Array
+                            Tabulka
                         </h3>
                         <div
                             dangerouslySetInnerHTML={{ __html: taguchiArray }}
@@ -373,13 +399,13 @@ const OrtoGen: React.FC = () => {
                                 className="bg-[#fad02c] hover:bg-[#333652] text-[#222222] hover:text-white font-bold py-2 px-4 rounded-md transition-all duration-300 shadow-lg flex items-center justify-center"
                                 onClick={generateResults}
                             >
-                                Calculate Results!
+                                Spočítat výsledek!
                             </button>
                             <button
                                 className="bg-[#fad02c] hover:bg-[#333652] text-[#222222] hover:text-white font-bold py-2 px-4 rounded-md transition-all duration-300 shadow-lg flex items-center justify-center"
-                                onClick={exportTaguchiArray}
+                                onClick={exportTaguchiArrayAsHTML}
                             >
-                                Download Array (CSV)
+                                Tabulku stáhnout (HTML)
                             </button>
                         </div>
                     </div>
@@ -388,7 +414,7 @@ const OrtoGen: React.FC = () => {
                 {resultsVisible && (
                     <div className="bg-white rounded-lg p-8 shadow-lg max-w-4xl mx-auto mt-8">
                         <h3 className="text-2xl font-bold text-[#333652] mb-6 text-center">
-                            Results
+                            Výsledky experimentu
                         </h3>
 
                         <div
@@ -398,7 +424,7 @@ const OrtoGen: React.FC = () => {
                             className="mx-auto w-full bg-[#fad02c] hover:bg-[#333652] text-[#222222] hover:text-white font-bold py-2 px-4 rounded-md transition-all duration-300 shadow-lg flex items-center justify-center"
                             onClick={exportResults}
                         >
-                            Download Results (JSON)
+                            Stáhnout výsledky (JSON)
                         </button>
                     </div>
                 )}
@@ -410,7 +436,7 @@ const OrtoGen: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-[#333652] italic underline hover:text-[#fad02c]"
                     >
-                        Source
+                        Zdroj
                     </a>
                 </div>
             </div>

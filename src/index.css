@@ -225,3 +225,9 @@ body {
 section {
     scroll-snap-align: start;
 }
+
+input:focus {
+    outline: none;
+    border-color: #fe5734; /* Red color */
+    box-shadow: 0 0 0 2px #fe5734; /* Red outline */
+}
