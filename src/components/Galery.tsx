@@ -55,5 +55,4 @@ const Galery: React.FC = () => {
         </section>
     );
 };
-
 export default Galery;

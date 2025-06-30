@@ -3,8 +3,7 @@ import { Mail, User } from "lucide-react";
 import "./formHandler";
 
 export const Footer: React.FC = () => {
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    const isFirefox = /Firefox/i.test(navigator.userAgent);
+    const isFirefox = false; /* /Firefox/i.test(navigator.userAgent);*/
 
     const handleRedirect = () => {
         window.location.href =

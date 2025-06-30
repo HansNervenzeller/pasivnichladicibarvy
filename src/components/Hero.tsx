@@ -68,11 +68,11 @@ export const Hero: React.FC = () => {
                     </>
                 )}
             </div>
-            <h1 className="text-6xl md:text-6xl max-w-7xl font-times font-bold text-[#333652] mb-6 leading-tight min-h-[7rem] z-10">
+            <h1 className="text-4xl md:text-6xl max-w-7xl font-times font-bold text-[#333652] mb-6 leading-tight min-h-[7rem] z-10">
                 {typedText}
                 {!typingDone && <span className="typing-cursor">|</span>}
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-12 text-gray-700 z-10">
+            <p className="text-lg md:text-2xl max-w-3xl mx-auto mb-12 text-gray-700 z-10">
                 Jednoduché řešení složitého problému s využitím pasivních
                 chladicích barev, které přispívají k ochraně životního prostředí
                 a boji proti klimatickým změnám.
