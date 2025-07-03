@@ -29,14 +29,14 @@ export const MadeForFuture = () => {
                     I'm not waiting for perfection. I'm starting with what works
                     now.
                 </p>
-                <div className="mt-10">
+                {/*<div className="mt-10">
                     <a
                         href="#join"
-                        className="inline-block px-6 py-3 bg-[#FAD02C] text-gray-900 font-semibold rounded-xl hover:bg-yellow-400 transition"
+                        className="inline-block bg-[#fad02c] text-[#333652] px-6 py-3 rounded-xl text-lg font-bold hover:bg-[#333652] hover:text-white transition"
                     >
-                        Join the Mission
+                        Join the Mission!
                     </a>
-                </div>
+                </div>*/}
             </div>
         </section>
     );

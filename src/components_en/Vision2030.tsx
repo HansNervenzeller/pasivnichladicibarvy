@@ -56,12 +56,12 @@ export const Vision2030 = () => {
                 </div>
 
                 <div className="mt-12">
-                    <p className="text-lg font-extrabold font-medium text-white">
+                    <p className="mb-6 text-lg font-extrabold font-medium text-white">
                         Want to help me get there? Your journey start today.
                     </p>
                     <a
                         href="#join"
-                        className="inline-block mt-4 px-6 py-3 bg-[#FAD02C] text-gray-900 font-semibold rounded-xl hover:bg-yellow-400 transition"
+                        className="inline-block bg-[#fad02c] text-[#333652] px-6 py-3 rounded-xl text-lg font-bold hover:bg-[#333652] hover:text-[#fad02c] transition"
                     >
                         Join the Mission!
                     </a>

@@ -65,14 +65,14 @@ export const Reasons = () => {
                     </div>
                 </div>
 
-                {/*<div className="mt-16">
+                <div className="mt-16">
                     <a
                         href="#join"
-                        className="inline-block bg-[#fad02c] text-[#333652] px-6 py-3 rounded-xl text-lg font-semibold hover:bg-[#333652] hover:text-white transition"
+                        className="inline-block bg-[#fad02c] text-[#333652] px-6 py-3 rounded-xl text-lg font-bold hover:bg-[#333652] hover:text-[#fad02c] transition"
                     >
-                        Join the Mission
+                        Join the Mission!
                     </a>
-                </div>*/}
+                </div>
             </div>
         </section>
     );

@@ -104,9 +104,9 @@ const HeroEn: React.FC = () => {
                 </p>
                 <a
                     href="#join"
-                    className="inline-block bg-[#fad02c] text-[#333652] px-6 py-3 rounded-xl text-lg font-semibold hover:bg-[#333652] hover:text-white transition"
+                    className="inline-block bg-[#fad02c] text-[#333652] px-6 py-3 rounded-xl text-lg font-bold hover:bg-[#333652] hover:text-white transition"
                 >
-                    Join the Mission
+                    Join the Mission!
                 </a>
             </div>
             {/* Fireflies CSS */}
