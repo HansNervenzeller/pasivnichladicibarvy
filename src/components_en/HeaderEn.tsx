@@ -57,7 +57,7 @@ export const HeaderEn: React.FC = () => {
                     onClick={switchToCzech}
                     className="text-[#333652] hover:text-[#fad02c] font-bold transition-colors"
                 >
-                    🇨z
+                    cz
                 </button>
             </li>
         </>

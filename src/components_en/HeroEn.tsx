@@ -57,7 +57,7 @@ const HeroEn: React.FC = () => {
     }, []);
 
     return (
-        <section className="pt-28 pb-20 min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+        <section className="snap-start pt-28 pb-20 min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
             {/* Fireflies */}
             {showFireflies && (
                 <div
@@ -96,10 +96,11 @@ const HeroEn: React.FC = () => {
                     </span>
                 </h1>
                 <p className="text-lg md:text-xl  mb-8 text-[#333652]">
-                    Be part of the solution. Global warming is real — but we
-                    don't need bans or sacrifices. We need solutions that work
-                    in the background. Passive cooling paints could save the
-                    planet.
+                    Be part of the solution.{" "}
+                    <strong>Global warming is real</strong> — but we don't need
+                    bans or sacrifices. We need solutions that work in the
+                    background.{" "}
+                    <b>Passive cooling paints could save the planet.</b>
                 </p>
                 <a
                     href="#join"

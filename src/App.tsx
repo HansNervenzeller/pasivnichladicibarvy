@@ -25,15 +25,18 @@ import MotivationEn from "./components_en/MotivationEn";
 import PrinciplesEn from "./components_en/PrinciplesEn";
 import JoinEn from "./components_en/JoinEn";
 import { Vision2030 } from "./components_en/Vision2030";
+import { Reasons } from "./components_en/Reasons";
+import { MadeForFuture } from "./components_en/Madeforfuture";
 
 import OrtoGen from "./components/OrtoGen";
+import NotFoundEn from "./components_en/NotFoundEn";
 
 const AppWrapper = () => {
     const location = useLocation();
     const isCzech = location.pathname.startsWith("/cs");
 
     return (
-        <div className="bg-[#e9eaec] min-h-screen text-black">
+        <div className="bg-[#e9eaec] min-h-screen text-black snap-y snap-mandatory overflow-y-scroll scroll-smooth">
             {isCzech ? <Header /> : <HeaderEn />}
             <Routes>
                 {/* English version */}
@@ -43,6 +46,8 @@ const AppWrapper = () => {
                         <main>
                             <HeroEn />
                             <MotivationEn />
+                            <Reasons />
+                            <MadeForFuture />
                             <Vision2030 />
                             <JoinEn />
                             <PrinciplesEn />
@@ -72,7 +77,11 @@ const AppWrapper = () => {
                 {/* 404 Not Found route */}
                 <Route
                     path="*"
-                    element={<div>Stránka nenalezena / Page not found</div>}
+                    element={
+                        <main>
+                            <NotFoundEn />
+                        </main>
+                    }
                 />
             </Routes>
             {isCzech ? <Footer /> : <FooterEn />}

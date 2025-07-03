@@ -3,7 +3,7 @@ import { Users, Landmark, PaintRollerIcon } from "lucide-react"; // přidat navr
 
 export const Vision2030 = () => {
     return (
-        <section className="bg-[#333652] py-16 px-6 md:px-20">
+        <section className="bg-[#333652] py-16 px-6 md:px-20 snap-start">
             <div className="max-w-4xl mx-auto text-center text-white">
                 <h2 className="text-4xl font-bold mb-6">Vision for 2030</h2>
                 <p className="text-lg mb-10 text-gray-200">

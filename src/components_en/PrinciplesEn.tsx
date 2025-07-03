@@ -30,7 +30,7 @@ const PrinciplesEn: React.FC = () => {
     return (
         <>
             <style>{arrowAnimation}</style>
-            <section id="principles" className="py-20 px-4 bg-white">
+            <section id="principles" className="py-20 px-4 bg-white snap-start">
                 <div className="container mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#333652] mb-12 text-center">
                         Physical Principles
